@@ -1,0 +1,37 @@
+{
+	"player":{"id":1890,"x":-3,"y":3,"energy":67,"level":1,"xp":0,"coins":200,"wood":12},
+	"trees": [
+		{"id":1,"stage":"1","variety":"Oak","chops":3,"x":10,"y":0},
+		{"id":2,"stage":"3","variety":"Oak","chops":0,"x":12,"y":0},
+		{"id":3,"stage":"2","variety":"Oak","chops":1,"x":9,"y":0},
+		{"id":4,"stage":"5","variety":"Oak","chops":0,"x":11,"y":0},
+		{"id":5,"stage":"4","variety":"Oak","chops":2,"x":8,"y":0},
+		{"id":6,"stage":"1","variety":"Pine","chops":3,"x":10,"y":5},
+		{"id":7,"stage":"3","variety":"Pine","chops":0,"x":12,"y":5},
+		{"id":8,"stage":"2","variety":"Pine","chops":1,"x":9,"y":5},
+		{"id":9,"stage":"5","variety":"Pine","chops":0,"x":11,"y":5},
+		{"id":10,"stage":"4","variety":"Pine","chops":2,"x":8,"y":5},
+		{"id":11,"stage":"1","variety":"Bare","chops":3,"x":10,"y":10},
+		{"id":12,"stage":"3","variety":"Bare","chops":0,"x":12,"y":10},
+		{"id":13,"stage":"2","variety":"Bare","chops":1,"x":9,"y":10},
+		{"id":14,"stage":"5","variety":"Bare","chops":0,"x":11,"y":10},
+		{"id":15,"stage":"4","variety":"Bare","chops":2,"x":8,"y":10}
+	],
+	"fields": [
+		{"id":1,"crop":"sunflower","x":-5,"y":0,"planted":1313823229110},
+		{"id":2,"crop":"corn","x":-5,"y":3,"planted":1313823229110},
+		{"id":3,"crop":"tomatoes","x":-5,"y":6,"planted":1313823229110},
+		{"id":4,"crop":"carrots","x":-5,"y":9,"planted":1313823229110},
+		{"id":5,"crop":"wheat","x":-5,"y":12,"planted":1313823229110},
+		{"id":6,"crop":"sunflower","x":-8,"y":0,"planted":1311153889202},
+		{"id":7,"crop":"corn","x":-8,"y":3,"planted":1311153889402},
+		{"id":8,"crop":"tomatoes","x":-8,"y":6,"planted":1311153892202},
+		{"id":9,"crop":"carrots","x":-8,"y":9,"planted":1311153894202},
+		{"id":10,"crop":"wheat","x":-8,"y":12,"planted":1311153894802},
+		{"id":11,"plowed":false,"x":-11,"y":0},
+		{"id":12,"plowed":true,"x":-11,"y":3},
+		{"id":13,"plowed":false,"x":-11,"y":6},
+		{"id":14,"plowed":true,"x":-11,"y":9},
+		{"id":15,"plowed":false,"x":-11,"y":12}
+	]
+}
