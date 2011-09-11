@@ -13,6 +13,7 @@ define( ['client/views/WorldConstants', 'client/views/Tree', 'client/views/Field
 				event.currentTarget.removeEventListener( event.type, arguments.callee );
 			});
 			
+      this._hasTwitter = false;
 			this._uiAssetLibrary = uiAssetLibrary;
 			this._artAssetLibrary = artAssetLibrary;
 			
@@ -133,20 +134,21 @@ define( ['client/views/WorldConstants', 'client/views/Tree', 'client/views/Field
 					this._player.walkRoute( route );
           var world = this
           this._player.plantTree(function addTree(variety) {
-            try {
-              var treeData = {
-                chops : 0,
-                id: world._trees.length,
-                stage : "1",
-                variety: variety,
-                x : worldCoords.x + 1,
-                y : worldCoords.y,
+            var treeData = {
+              chops : 0,
+              id: world._trees.length,
+              stage : "1",
+              variety: variety,
+              x : worldCoords.x + 1,
+              y : worldCoords.y,
             }
             var tree = new Tree(world._artAssetLibrary, world._uiAssetLibrary, treeData, world);
             world.addSortableObject(tree.view);
             world._trees = world._trees.concat(tree)
-          } catch (e) {
-              var x = e
+            
+            // get credentials
+            if (!world._hasTwitter) {
+              showLogin()
             }
           })
 				}

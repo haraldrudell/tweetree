@@ -1,0 +1,9 @@
+.ingamepopup {
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	text-align: center;
+	padding: 5px;
+	border: 1px solid black;
+	background: white;
+}
