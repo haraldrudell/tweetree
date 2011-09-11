@@ -1,4 +1,4 @@
-define( ['client/views/InteractiveWorldObject', 'client/models/ActionQueue', 'client/models/WalkAction', 'client/models/ChopAction', 'client/models/WaterAction', 'client/models/PlantAction', 'client/models/PlowAction', 'client/models/HarvestAction', 'client/models/ClearAction', 'client/models/RouteToAction'], function(InteractiveWorldObject, ActionQueue, WalkAction, ChopAction, WaterAction, PlantAction, PlowAction, HarvestAction, ClearAction, RouteToAction) {
+define( ['client/views/InteractiveWorldObject', 'client/models/ActionQueue', 'client/models/WalkAction', 'client/models/PlantTreeAction', 'client/models/ChopAction', 'client/models/WaterAction', 'client/models/PlantAction', 'client/models/PlowAction', 'client/models/HarvestAction', 'client/models/ClearAction', 'client/models/RouteToAction'], function(InteractiveWorldObject, ActionQueue, WalkAction, PlantTreeAction, ChopAction, WaterAction, PlantAction, PlowAction, HarvestAction, ClearAction, RouteToAction) {
     
 	// Each level, to get to the next you need to earn the following amount more XP:
 	// 10*x + 3*x*Math.sin(4*x/Math.PI)
@@ -165,7 +165,7 @@ define( ['client/views/InteractiveWorldObject', 'client/models/ActionQueue', 'cl
 				this._actionQueue.clearTrailingWalkActions();
 			},
 			walkTo: function walkTo( destination ){
-				this._actionQueue.addAction( new RouteToAction(this, this._actionQueue, destination, this._world) );
+        this._actionQueue.addAction( new RouteToAction(this, this._actionQueue, destination, this._world));
 			},
 			chopTree: function chopTree( tree ){
 				this._actionQueue.addAction( new ChopAction(this, this._actionQueue, tree) );
@@ -187,16 +187,18 @@ define( ['client/views/InteractiveWorldObject', 'client/models/ActionQueue', 'cl
 				this.waterField( field );
 			},
 			walkRoute: function walkRoute( route ){
-				if( !route )
-					return;
-					
-				route.forEach( function(waypoint){
-					this._actionQueue.addAction( new WalkAction(this, this._actionQueue, waypoint) );
-				}, this);
+        if( route ) {
+  				route.forEach( function(waypoint){
+	  				this._actionQueue.addAction( new WalkAction(this, this._actionQueue, waypoint) );
+		  		}, this);
+        }
 			},
 			cancelAllQueuedTasks: function cancelAllQueuedTasks(){
 				this._actionQueue.cancelAllQueuedTasks();
 			},
+      plantTree: function plantTree(addtreemethod) {
+        this._actionQueue.addAction(new PlantTreeAction(this, this._actionQueue, addtreemethod));
+      },
 			setAnimation: function setAnimation( animData ){
 				if( this._movieClip.currentLabel != animData.anim )
 					this._movieClip.gotoAndPlay( animData.anim );

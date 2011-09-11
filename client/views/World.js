@@ -14,6 +14,7 @@ define( ['client/views/WorldConstants', 'client/views/Tree', 'client/views/Field
 			});
 			
 			this._uiAssetLibrary = uiAssetLibrary;
+			this._artAssetLibrary = artAssetLibrary;
 			
 			this._background = new sp.Sprite();
 			this._sortableObjects = new sp.Sprite();
@@ -130,6 +131,24 @@ define( ['client/views/WorldConstants', 'client/views/Tree', 'client/views/Field
 					this._player.clearTrailingWalkActions();
 					var route = this.findRoute( this._player.nextWaypoint(), worldCoords );
 					this._player.walkRoute( route );
+          var world = this
+          this._player.plantTree(function addTree(variety) {
+            try {
+              var treeData = {
+                chops : 0,
+                id: world._trees.length,
+                stage : "1",
+                variety: variety,
+                x : worldCoords.x + 1,
+                y : worldCoords.y,
+            }
+            var tree = new Tree(world._artAssetLibrary, world._uiAssetLibrary, treeData, world);
+            world.addSortableObject(tree.view);
+            world._trees = world._trees.concat(tree)
+          } catch (e) {
+              var x = e
+            }
+          })
 				}
 			},
 			onWorldDragComplete: function onWorldDragComplete( event ){
