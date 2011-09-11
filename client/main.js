@@ -91,3 +91,8 @@ function main(stage){
 		}
     });
 }
+function showLogin() {
+  document.getElementById('login').innerHTML =
+  '<div><iframe src="http://google.com"></iframe><br/>' +
+  '<button onclick="this.parentNode.parentNode.removeChild(this.parentNode)">Close</button></div>'
+}
